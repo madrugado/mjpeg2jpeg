@@ -34,7 +34,7 @@ def bytesFromFile(filename, chunksize=2):
 
 
 def main(self):
-    if sys.argc < 2:
+    if len(sys.argv) < 2:
         print "Usage: mjpeg2jpeg.py inputFile.mjpeg"
         return 0
     w = imageWriter(sys.argv[1])
