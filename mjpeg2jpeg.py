@@ -1,21 +1,22 @@
 import sys
 
+
 class imageWriter:
     def __init__(self, filename):
-        self.i = 0
+        self.fileCounter = 0
         self.baseFilename = filename
 
-    def writeBytes(self, bytes):
+    def writeBytes(self, bytesToWrite):
         if self.needToWrite is False:
-            if bytes[0] == 0xFF & bytes[1] == 0xD8:
+            if bytesToWrite[0] == 0xFF & bytesToWrite[1] == 0xD8:
                 self.needToWrite = True
-                self.fileToWrite = open(self.baseFilename + str(self.i), "wb")
-                self.fileToWrite.write(bytes)
+                self.fileToWrite = open(self.baseFilename + str(self.fileCounter), "wb")
+                self.fileToWrite.write(bytesToWrite)
         else:
-            self.fileToWrite.write(bytes)
-            if bytes[0] == 0xFF & bytes[1] == 0xD9:
+            self.fileToWrite.write(bytesToWrite)
+            if bytesToWrite[0] == 0xFF & bytesToWrite[1] == 0xD9:
                 self.fileToWrite.close()
-                self.i += 1
+                self.fileCounter += 1
                 self.needToWrite = False
 
 
