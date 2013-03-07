@@ -2,3 +2,10 @@ mjpeg2jpeg
 ==========
 
 python script to chop mjpeg video to jpegs
+
+Warning!
+It creates jpegs with same name as source mjpeg and sequential numbers.  
+
+License
+==========
+This code is licensed under GPL v2.
