@@ -33,12 +33,10 @@ class imageWriter:
 
 def bytesFromFile(filename, chunksize=2):
     with open(filename, "rb") as f:
-        while True:
+        chunk = f.read(chunksize)
+        while chunk:
+            yield chunk
             chunk = f.read(chunksize)
-            if chunk:
-                yield chunk
-            else:
-                break
 
 
 def main():
